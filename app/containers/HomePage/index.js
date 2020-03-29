@@ -6,13 +6,13 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+import Container from 'react-bootstrap/Container';
+import PokemonCards from '../../components/PokemonCards';
 
 export default function HomePage() {
   return (
-    <h1>
-      <FormattedMessage {...messages.header} />
-    </h1>
+    <Container className="mt-3">
+      <PokemonCards />
+    </Container>
   );
 }
