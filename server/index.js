@@ -1,12 +1,16 @@
 /* eslint consistent-return:0 import/order:0 */
 
 const express = require('express');
-const logger = require('./logger');
+// const cors = require('cors');
+// const passport = require('passport');
+const morgan = require('morgan');
 
+const logger = require('./logger');
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
 const pokemonApi = require('./middlewares/pokemon');
+
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok =
   (isDev && process.env.ENABLE_TUNNEL) || argv.tunnel
@@ -14,6 +18,12 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 const app = express();
+
+// app.use(cors());
+// app.use(express.urlencoded({ extended: false }));
+// app.use(express.json());
+app.use(morgan('dev'));
+// app.use(passport.initialize());
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/pokemon', pokemonApi);

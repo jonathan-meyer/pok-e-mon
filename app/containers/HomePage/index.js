@@ -6,13 +6,19 @@
  */
 
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import PokemonCards from '../../components/PokemonCards';
+import { Link } from 'react-router-dom';
+
+import Card from 'react-bootstrap/Card';
 
 export default function HomePage() {
   return (
-    <Container className="mt-3">
-      <PokemonCards />
-    </Container>
+    <Card className="mt-2">
+      <Card.Header>
+        <h2>HomePage</h2>
+      </Card.Header>
+      <Card.Body>
+        <Link to="/cards">Cards</Link>
+      </Card.Body>
+    </Card>
   );
 }
