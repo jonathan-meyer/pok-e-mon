@@ -10,11 +10,13 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import LoginLogout from 'components/LoginLogout';
+import Menu from 'components/Menu';
+import Footer from 'components/Footer';
 
-import HomePage from 'containers/HomePage/Loadable';
+// import HomePage from 'containers/HomePage/Loadable';
 import PokemonCards from 'containers/PokemonCards/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
+import Login from 'containers/Login/Loadable';
 
 import Container from 'react-bootstrap/Container';
 
@@ -23,13 +25,15 @@ import GlobalStyle from '../../global-styles';
 export default function App() {
   return (
     <div>
-      <Container className="mt-3">
-        <LoginLogout />
+      <Container>
+        <Menu />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/cards" component={PokemonCards} />
+          {/* <Route exact path="/" component={HomePage} /> */}
+          <Route exact path="/" component={PokemonCards} />
+          <Route exact path="/login" component={Login} />
           <Route component={NotFoundPage} />
         </Switch>
+        <Footer />
       </Container>
       <GlobalStyle />
     </div>

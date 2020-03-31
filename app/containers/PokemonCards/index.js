@@ -7,7 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
@@ -26,7 +26,7 @@ import { changeSearch, startSearch } from './actions';
 import makeSelectPokemonCards from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-// import messages from './messages';
+import messages from './messages';
 
 export function PokemonCards({
   pokemonCards,
@@ -37,12 +37,14 @@ export function PokemonCards({
   useInjectReducer({ key: 'pokemonCards', reducer });
   useInjectSaga({ key: 'pokemonCards', saga });
 
-  const { search, data, err } = pokemonCards;
+  const { search, data, error } = pokemonCards;
 
   return (
-    <Card className="mt-2">
+    <Card>
       <Card.Header>
-        <h2>Pokémon Cards</h2>
+        <h2>
+          <FormattedMessage {...messages.header} />
+        </h2>
       </Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit} className="mb-3">
@@ -58,6 +60,8 @@ export function PokemonCards({
           </InputGroup>
         </Form>
 
+        {error && <Alert variant="danger">{error.message}</Alert>}
+
         {data && data.length === 0 && (
           <Alert variant="danger">No Cards Found</Alert>
         )}
@@ -69,12 +73,9 @@ export function PokemonCards({
             ))}
           </Alert>
         )}
-
-        {err && (
-          <Alert variant="info">
-            <pre>{JSON.stringify(err, null, 2)} </pre>
-          </Alert>
-        )}
+        {/* <Alert variant="info">
+          <pre>{JSON.stringify(pokemonCards, null, 2)} </pre>
+        </Alert> */}
       </Card.Body>
     </Card>
   );

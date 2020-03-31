@@ -7,17 +7,22 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import Card from 'react-bootstrap/Card';
 
+import messages from './messages';
+
 export default function HomePage() {
   return (
-    <Card className="mt-2">
+    <Card>
       <Card.Header>
-        <h2>HomePage</h2>
+        <h2>
+          <FormattedMessage {...messages.header} />
+        </h2>
       </Card.Header>
       <Card.Body>
-        <Link to="/cards">Cards</Link>
+        <p>Now is the time to have a virtual Pokémon game.</p>
       </Card.Body>
     </Card>
   );

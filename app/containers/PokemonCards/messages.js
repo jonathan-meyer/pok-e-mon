@@ -11,6 +11,6 @@ export const scope = 'app.containers.PokemonCards';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the PokemonCards container!',
+    defaultMessage: 'Search',
   },
 });
