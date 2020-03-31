@@ -8,6 +8,9 @@ describe('pokemonCardsReducer', () => {
   beforeEach(() => {
     state = {
       // default state params here
+      data: null,
+      error: null,
+      search: '',
     };
   });
 

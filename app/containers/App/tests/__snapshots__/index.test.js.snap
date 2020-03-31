@@ -2,16 +2,27 @@
 
 exports[`<App /> should render and match the snapshot 1`] = `
 <div>
-  <Switch>
-    <Route
-      component={[Function]}
-      exact={true}
-      path="/"
-    />
-    <Route
-      component={[Function]}
-    />
-  </Switch>
+  <ForwardRef
+    fluid={false}
+  >
+    <Menu />
+    <Switch>
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/"
+      />
+      <Route
+        component={[Function]}
+        exact={true}
+        path="/login"
+      />
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+    <Footer />
+  </ForwardRef>
   <GlobalStyleComponent />
 </div>
 `;

@@ -2,45 +2,23 @@
 
 exports[`<HomePage /> should render and match the snapshot 1`] = `
 <div
-  class="mt-3 container"
+  class="card"
 >
   <div
-    class="mt-2 card"
+    class="card-header"
   >
-    <div
-      class="card-header"
-    >
-      <h2>
-        Pokémon Cards
-      </h2>
-    </div>
-    <div
-      class="card-body"
-    >
-      <form
-        class="mb-3"
-      >
-        <div
-          class="input-group"
-        >
-          <input
-            class="form-control"
-            spellcheck="false"
-            value=""
-          />
-          <div
-            class="input-group-append"
-          >
-            <button
-              class="btn btn-primary"
-              type="button"
-            >
-              Search
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <h2>
+      <span>
+        Pokémon Trading Card Game!
+      </span>
+    </h2>
+  </div>
+  <div
+    class="card-body"
+  >
+    <p>
+      Now is the time to have a virtual Pokémon game.
+    </p>
   </div>
 </div>
 `;
