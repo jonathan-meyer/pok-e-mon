@@ -5,24 +5,16 @@
  */
 
 import { defineMessages } from 'react-intl';
+import { simpleMessages } from 'utils/simpleMessages';
 
 export const scope = 'app.components.Menu';
 
-export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'Pokémon Cards',
-  },
-  profile: {
-    id: `${scope}.profile`,
-    defaultMessage: 'Profile',
-  },
-  login: {
-    id: `${scope}.login`,
-    defaultMessage: 'Login',
-  },
-  logout: {
-    id: `${scope}.logout`,
-    defaultMessage: 'Logout',
-  },
-});
+export default defineMessages(
+  simpleMessages(scope, {
+    header: 'Pokémon Cards',
+    profileLink: 'Profile',
+    loginLink: 'Login',
+    logoutLink: 'Logout',
+    regLink: 'Register',
+  }),
+);

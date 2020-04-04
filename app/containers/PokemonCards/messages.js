@@ -5,12 +5,12 @@
  */
 
 import { defineMessages } from 'react-intl';
+import { simpleMessages } from 'utils/simpleMessages';
 
 export const scope = 'app.containers.PokemonCards';
 
-export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'Search',
-  },
-});
+export default defineMessages(
+  simpleMessages(scope, {
+    header: 'Search',
+  }),
+);

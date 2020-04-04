@@ -5,12 +5,15 @@
  */
 
 import { defineMessages } from 'react-intl';
+import { simpleMessages } from 'utils/simpleMessages';
 
 export const scope = 'app.containers.Login';
 
-export default defineMessages({
-  header: {
-    id: `${scope}.header`,
-    defaultMessage: 'This is the Login container!',
-  },
-});
+export default defineMessages(
+  simpleMessages(scope, {
+    header: 'Login',
+    name: 'Name',
+    password: 'Password',
+    loginButton: 'Login',
+  }),
+);
