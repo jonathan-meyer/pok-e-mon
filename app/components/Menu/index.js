@@ -17,7 +17,7 @@ import messages from './messages';
 
 function Menu({ user }) {
   return (
-    <Navbar bg="light" variant="light">
+    <Navbar>
       <Navbar.Brand href="/">
         <Image width={30} src="ball.png" />{' '}
         <FormattedMessage {...messages.header} />
@@ -29,16 +29,21 @@ function Menu({ user }) {
         {user ? (
           <>
             <Nav.Link href="/profile">
-              <FormattedMessage {...messages.profile} />
+              <FormattedMessage {...messages.profileLink} />
             </Nav.Link>
             <Nav.Link href="/logout">
-              <FormattedMessage {...messages.logout} />
+              <FormattedMessage {...messages.logoutLink} />
             </Nav.Link>
           </>
         ) : (
-          <Nav.Link href="/login">
-            <FormattedMessage {...messages.login} />
-          </Nav.Link>
+          <>
+            <Nav.Link href="/login">
+              <FormattedMessage {...messages.loginLink} />
+            </Nav.Link>
+            <Nav.Link href="/register">
+              <FormattedMessage {...messages.regLink} />
+            </Nav.Link>
+          </>
         )}
       </Nav>
     </Navbar>
