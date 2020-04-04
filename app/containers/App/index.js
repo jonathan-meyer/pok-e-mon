@@ -20,8 +20,6 @@ import Login from 'containers/Login/Loadable';
 
 import Container from 'react-bootstrap/Container';
 
-import GlobalStyle from '../../global-styles';
-
 export default function App() {
   return (
     <div>
@@ -35,7 +33,6 @@ export default function App() {
         </Switch>
         <Footer />
       </Container>
-      <GlobalStyle />
     </div>
   );
 }
