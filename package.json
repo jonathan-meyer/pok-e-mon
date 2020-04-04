@@ -24,7 +24,7 @@
     "build:clean": "rimraf ./build",
     "start:dev": "cross-env NODE_ENV=development node server",
     "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
-    "build": "npm run test && npm run build:prod",
+    "build": "npm run build:prod",
     "start": "cross-env NODE_ENV=production node server",
     "presetup": "npm i chalk shelljs",
     "setup": "node ./internals/scripts/setup.js",
