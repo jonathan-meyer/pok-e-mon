@@ -8,12 +8,14 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
+import Alert from 'react-bootstrap/Alert';
+
 import messages from './messages';
 
 export default function NotFound() {
   return (
-    <h1>
+    <Alert variant="danger">
       <FormattedMessage {...messages.header} />
-    </h1>
+    </Alert>
   );
 }

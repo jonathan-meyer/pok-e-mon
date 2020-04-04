@@ -42,9 +42,7 @@ export function PokemonCards({
   return (
     <Card>
       <Card.Header>
-        <h2>
-          <FormattedMessage {...messages.header} />
-        </h2>
+        <FormattedMessage {...messages.header} />
       </Card.Header>
       <Card.Body>
         <Form onSubmit={handleSubmit} className="mb-3">

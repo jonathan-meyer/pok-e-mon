@@ -1,8 +1,8 @@
 /**
- *
- * {{ properCase name }}
- *
- */
+*
+* {{ properCase name }}
+*
+*/
 
 {{#if memo}}
 import React, { memo } from 'react';
@@ -12,19 +12,21 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import styled from 'styled-components';
 
+import Alert from 'react-bootstrap/Alert';
+
 {{#if wantMessages}}
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 {{/if}}
 
 function {{ properCase name }}() {
-  return (
-    <div>
-    {{#if wantMessages}}
-      <FormattedMessage {...messages.header} />
-    {{/if}}
-    </div>
-  );
+return (
+<Alert variant="info">
+  {{#if wantMessages}}
+  <FormattedMessage {...messages.header} />
+  {{/if}}
+</Alert>
+);
 }
 
 {{ properCase name }}.propTypes = {};
