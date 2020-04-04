@@ -1,16 +1,16 @@
 {
-  "name": "react-boilerplate",
-  "version": "4.0.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
+  "name": "pok-e-mon",
+  "version": "1.0.0",
+  "description": "Pokémon Trading Card Game",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "git://github.com/jonathan-meyer/pok-e-mon.git"
   },
   "engines": {
     "npm": ">=5",
-    "node": ">=8.15.1"
+    "node": ">=10"
   },
-  "author": "Max Stoiber",
+  "author": "Jonathan Meyer",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
