@@ -1,15 +1,19 @@
 /* eslint consistent-return:0 import/order:0 */
+require('dotenv').config();
 
 const express = require('express');
-// const cors = require('cors');
-// const passport = require('passport');
+const cors = require('cors');
+const passport = require('passport');
 const morgan = require('morgan');
+const mongoos = require('mongoose');
+const expressSession = require('express-session');
 
 const logger = require('./logger');
 const argv = require('./argv');
 const port = require('./port');
 const setup = require('./middlewares/frontendMiddleware');
 const pokemonApi = require('./middlewares/pokemon');
+const User = require('./model/User');
 
 const isDev = process.env.NODE_ENV !== 'production';
 const ngrok =
@@ -19,11 +23,51 @@ const ngrok =
 const { resolve } = require('path');
 const app = express();
 
-// app.use(cors());
-// app.use(express.urlencoded({ extended: false }));
-// app.use(express.json());
+mongoos
+  .connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log('connected to mongoose');
+    User.register(
+      new User({
+        username: 'jon',
+      }),
+      'abc123',
+    )
+      .then(res => console.log(res))
+      .catch(ex => console.log(ex.message));
+  })
+  .catch(ex => console.log(ex.message));
+
+app.use(cors());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(morgan('dev'));
-// app.use(passport.initialize());
+
+app.use(
+  expressSession({
+    secret: 'Hello World, this is a session',
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(User.createStrategy());
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.post(
+  '/foo',
+  passport.authenticate('local', {
+    failureRedirect: '/login',
+  }),
+  (req, res) => {
+    res.json(req.user);
+  },
+);
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 app.use('/pokemon', pokemonApi);

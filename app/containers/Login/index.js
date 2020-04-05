@@ -24,7 +24,7 @@ import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
 
-export function Login() {
+export function Login({ login }) {
   useInjectReducer({ key: 'login', reducer });
   useInjectSaga({ key: 'login', saga });
 
@@ -36,6 +36,7 @@ export function Login() {
         <FormattedMessage {...header} />
       </Card.Header>
       <Card.Body>
+        <pre>{JSON.stringify(login, null, 2)}</pre>
         <Form>
           <Form.Group as={Row} controlId="name">
             <Form.Label column sm="2">
